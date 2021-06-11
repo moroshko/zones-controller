@@ -1,0 +1,15 @@
+.list {
+  list-style-type: none;
+  padding: 0;
+  display: grid;
+  grid-template-columns: repeat(2, 100px);
+  grid-column-gap: 20px;
+  grid-row-gap: 20px;
+  width: fit-content;
+  margin: 0 auto;
+}
+@media (min-width: 372px) {
+  .list {
+    grid-template-columns: repeat(3, 100px);
+  }
+}

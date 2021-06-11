@@ -1,15 +1,28 @@
-import Link from 'next/link'
-import Layout from '../components/Layout'
+import useSettings from "../hooks/useSettings";
+import SwitchesList from "../components/SwitchesList";
 
-const IndexPage = () => (
-  <Layout title="Home | Next.js + TypeScript Example">
-    <h1>Hello Next.js 👋</h1>
-    <p>
-      <Link href="/about">
-        <a>About</a>
-      </Link>
-    </p>
-  </Layout>
-)
+const IndexPage = () => {
+  const settings = useSettings();
 
-export default IndexPage
+  if (settings.loading) {
+    return null;
+  }
+
+  console.log(JSON.stringify(settings, null, 2));
+
+  return (
+    <main>
+      {settings.valid ? (
+        <SwitchesList switches={settings.data.switches} />
+      ) : (
+        <div role="alert">{settings.error}</div>
+      )}
+    </main>
+  );
+};
+
+IndexPage.pageTitle = "Zones Controller";
+IndexPage.pageDescription =
+  "Zones Controller allows you to easily control your air conditioner or heater using your mobile device.";
+
+export default IndexPage;

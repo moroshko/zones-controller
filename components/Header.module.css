@@ -1,0 +1,9 @@
+.header {
+  background-color: var(--blue-200);
+}
+.content {
+  max-width: var(--max-content-width);
+  margin: 0 auto;
+  padding: 16px 0;
+  text-align: center;
+}
