@@ -8,12 +8,15 @@ const IndexPage = () => {
     return null;
   }
 
-  console.log(JSON.stringify(settings, null, 2));
+  // console.log(JSON.stringify(settings, null, 2));
 
   return (
     <main>
       {settings.valid ? (
-        <SwitchesList switches={settings.data.switches} />
+        <SwitchesList
+          host={settings.data.host}
+          switches={settings.data.switches}
+        />
       ) : (
         <div role="alert">{settings.error}</div>
       )}

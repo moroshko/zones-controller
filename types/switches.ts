@@ -1,12 +1,12 @@
 export type Switches = {
-  d1?: string;
-  d2?: string;
-  d3?: string;
-  d4?: string;
-  d5?: string;
-  d6?: string;
-  d7?: string;
-  d8?: string;
+  zone_1?: string;
+  zone_2?: string;
+  zone_3?: string;
+  zone_4?: string;
+  zone_5?: string;
+  zone_6?: string;
+  zone_7?: string;
+  zone_8?: string;
 };
 
 export type SwitchId = keyof Switches;

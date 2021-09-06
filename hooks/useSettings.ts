@@ -36,28 +36,36 @@ export default function useSettings():
     return {
       loading: false,
       valid: false,
-      error: "Multiple hosts are not allowed",
+      error: "Multiple hosts are not allowed.",
     };
   }
 
   const switches: Switches = {};
 
   for (let k = 1; k <= 8; k++) {
-    const dK = `d${k}` as SwitchId;
+    const zoneK = `zone_${k}` as SwitchId;
 
-    if (dK in query) {
-      const name = query[dK];
+    if (zoneK in query) {
+      const name = query[zoneK];
 
       if (Array.isArray(name)) {
         return {
           loading: false,
           valid: false,
-          error: `Multiple d${k} are not allowed`,
+          error: `Multiple zone_${k} are not allowed.`,
         };
       }
 
-      switches[dK] = name;
+      switches[zoneK] = name;
     }
+  }
+
+  if (Object.keys(switches).length === 0) {
+    return {
+      loading: false,
+      valid: false,
+      error: "Please provide at least one zone.",
+    };
   }
 
   return {
